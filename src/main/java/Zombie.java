@@ -2,25 +2,27 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
-public class Zombie {
+public class Zombie implements Sprite {
     BufferedImage tape;
     int x = 500;
     int y = 500;
     double scale = 1;
 
     int index = 0;  // numer wyświetlanego obrazka
-    int HEIGHT =  // z rysunku;
-    int WIDTH =   // z rysunku;
+    int HEIGHT = 10; // z rysunku;
+    int WIDTH = 10;   // z rysunku;
 
-            Zombie(
-    int x, int y, double scale)
-
-    {
+    Zombie(int x, int y, double scale) {
         this.x = x;
         this.y = y;
         this.scale = scale;
-        this.tape = ImageIO.read(getClass().getResource("/resources/walkingdead.png"));
+        try {
+            this.tape = ImageIO.read(getClass().getResource("/resources/walkingdead.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
