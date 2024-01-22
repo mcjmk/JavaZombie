@@ -1,4 +1,7 @@
-ublic interface Sprite {
+import javax.swing.*;
+import java.awt.*;
+
+public interface Sprite {
     /**
      * Rysuje postać
      * @param g
