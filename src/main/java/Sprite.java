@@ -18,7 +18,7 @@ public interface Sprite {
      * Czy już zniknął z ekranu
      * @return
      */
-    default boolean isVisble(){return true;}
+    default boolean isVisble(){ return true;}
 
     /**
      * Czy punkt o współrzędnych _x, _y leży w obszarze postaci - 

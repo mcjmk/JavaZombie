@@ -3,8 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
-public class Zombie {
+public class Zombie implements Sprite {
     BufferedImage tape;
     int x = 500;
     int y = 500;
@@ -19,7 +20,7 @@ public class Zombie {
         this.y = y;
         this.scale = scale;
         try {
-            this.tape = ImageIO.read(getClass().getResource("/walkingdead.png"));
+            this.tape = ImageIO.read(Objects.requireNonNull(getClass().getResource("/walkingdead.png")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -45,7 +46,7 @@ public class Zombie {
      */
 
     public void next() {
-        x -= 20 * scale;
+        x -= (int) (20 * scale);
         index = (index + 1) % 10;
     }
 
